@@ -98,9 +98,10 @@ main .item {
   padding-bottom: 20px;
 }
 
-main .item img {
+main .item img, .full-item img{
   width: 100%;
   transition: transform 500ms ease;
+  cursor: pointer;
 }
 
 main h2, main p, main b {
@@ -108,11 +109,14 @@ main h2, main p, main b {
   color: #333;
 }
 
-main b {
+main h2, .full-item h2,
+main p, .full-item p,
+main b, .full-item b {
   color: #41794a;
 }
 
-main .add-cart {
+main .add-cart,
+.full-item .add-cart {
   position: absolute;
   right: 20px;
   bottom: 10px;
@@ -128,11 +132,12 @@ main .add-cart {
   transition: transform 500ms ease;
 }
 
-main .add-cart:hover {
+main .add-cart:hover,
+.full-item .add-cart:hover {
   transform: scale(1.05) translateY(-3px);
 }
 
-main .item img:hover {
+main .item img:hover, .full-item img:hover {
   transform: scale(1.05);
 }
 
@@ -153,14 +158,101 @@ header {
   position: relative;
 }
 
+header .shop-cart .item {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+header .shop-cart .item img {
+  width: 70px;
+  float: left;
+  margin-right: 20px;
+}
+
+header .shop-cart .item h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+header .shop-cart .item b {
+  color: #797979;
+  font-weight: 600;
+}
+
+header .shop-cart .empty h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 header .shop-cart {
   position: absolute;
   top: 30px;
   right: 0;
   width: 450px;
-  min-height: 100px;
   background: #fafafa;
   -webkit-box-shadow: 4px 5px 15px -7px #606060;
   box-shadow: 4px 5px 15px -7px #606060;
   z-index: 1000;
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+header .shop-cart .item .delete-icon {
+  color: #ca5252;
+  float: right;
+  position: relative;
+  top: -50px;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+
+header .shop-cart .item .delete-icon:hover {
+  color: #dc4949;
+  transform: scale(1.4);
+}
+
+header .shop-cart .sum {
+  float: left;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.categories div {
+  display: inline-block;
+  background-color: #f2f2f2;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+  margin-right: 15px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 500ms ease;
+}
+
+.categories div:hover {
+  border-color: silver;
+  transform: scale(1.1); 
+}
+
+.full-item {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+  overflow: auto;
+}
+
+.full-item>div {
+  width: 600px;
+  position: relative;
+  margin: 10% auto;
+  padding: 40px 30px;
+  background: #fff;
+  border-radius: 9px;
 }
